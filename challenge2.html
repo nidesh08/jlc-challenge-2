@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name" autocomplete="off"></td>
+            </tr>
+
+            <tr>
+                <td><label for="numberOfLegs">Number of Legs:</label></td>
+                <td><input type="text" id="numberOfLegs" autocomplete="off"></td>
+            </tr>
+
+            <tr>
+                <td><label for="expression">Expression:</label></td>
+                <td><input type="text" id="expression" autocomplete="off"></td>
+            </tr>
+
+            <tr>
+                <td><label for="lengthOfTail">Length of Tail:</label></td>
+                <td><input type="text" id="lengthOfTail" autocomplete="off"></td>
+            </tr>
+
+            <tr>
+                <td><label for="hasHorns">Has Horns:</label></td>
+                <td><input type="text" id="hasHorns" autocomplete="off"></td>
+            </tr>
+
+            <tr>
+                <td><button type="button" id="submitBtn" onclick="submitFunction()">Submit</button></td>
+                <td><button type="button" id="viewBtn" onclick="viewFunction()">View</button></td>
+            </tr>
+            
+        </table>
+        <br>
+        <table id="datadisplay">
+            <tr>
+                <td>Name:</td>
+                <td>Number Of Legs:</td>
+                <td>Expression:</td>
+                <td>Length Of Tail:</td>
+                <td>Has Horns:</td>
+            </tr>
+        </table>
+        
+
+        <script>
+            var data = [
+            {
+                "name":"",
+                "numberOfLegs":"",
+                "expression":"",
+                "lengthOfTail":"",
+                "hasHorns":""
+            }
+            ];
+            var newdata;
+            var parse;
+            var x=0;
+           
+            
+            function submitFunction(){
+            var inputName=document.getElementById("name").value;
+            var inputNumberOfLegs=document.getElementById("numberOfLegs").value;
+            var inputExpression=document.getElementById("expression").value;
+            var inputLengthOfTail=document.getElementById("lengthOfTail").value;
+            var inputHasHorns=document.getElementById("hasHorns").value;
+            
+            data.push({
+            "name":inputName,
+            "numberOfLegs":inputNumberOfLegs,
+            "expression":inputExpression,
+            "lengthOfTail":inputLengthOfTail,
+            "hasHorns":inputHasHorns}
+            )
+            newdata=JSON.stringify(data);
+            parse=JSON.parse(newdata);
+            
+            }
+
+            function viewFunction(){
+            var x=1;
+            var deletee;
+            
+            while(x<parse.length){
+                
+            var table=document.getElementById("datadisplay");
+            
+            var row=table.insertRow(x);
+            var cell1=row.insertCell(0);
+            var cell2=row.insertCell(1);
+            var cell3=row.insertCell(2);
+            var cell4=row.insertCell(3);
+            var cell5=row.insertCell(4);
+             
+            cell1.innerHTML=parse[x].name;
+            cell2.innerHTML=parse[x].numberOfLegs;
+            cell3.innerHTML=parse[x].expression;
+            cell4.innerHTML=parse[x].lengthOfTail;
+            cell5.innerHTML=parse[x].hasHorns;
+            x++;
+        
+            deletee=table.deleteRow(x);
+            
+                
+            }
+            
+            }
+            
+
+            
+            //document.getElementById("displayResult").innerHTML=data[0].name + " " +data[0].numberOfLegs+" "+
+            //data[0].expression+" "+data[0].lengthOfTail+" "+data[0].hasHorns+" ";
+
+            
+        </script>
+        
+        
+   
+
+        
+        
+        
+        
+
+
+
+
+
+
+    </body>
+</html>
