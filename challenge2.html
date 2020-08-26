@@ -69,6 +69,7 @@
             }
             
         </style>
+        
         <br><br><br>
         <table class="table1">
             <tr>
@@ -95,8 +96,7 @@
                 <td><label for="hasHorns">Has Horns:</label></td>
                 <td><input type="text" id="hasHorns" autocomplete="off"></td>
             </tr>
-            <tr></tr>
-            <tr></tr>
+            <tr></tr><tr></tr>
             <tr>
                 <td class="button"><button type="button" id="submitBtn" onclick="submitFunction()">Submit</button></td>
             
@@ -104,6 +104,7 @@
             </tr>
             
         </table>
+
         <br><br><br>
         <table id="datadisplay">
             <tr>
@@ -126,6 +127,7 @@
                 "hasHorns":""
             }
             ];
+
             var newdata="";
             var parse="";
             var x=1;
@@ -133,36 +135,36 @@
             
             function submitFunction()
             {
-            var inputName=document.getElementById("name").value;
-            var inputNumberOfLegs=document.getElementById("numberOfLegs").value;
-            var inputExpression=document.getElementById("expression").value;
-            var inputLengthOfTail=document.getElementById("lengthOfTail").value;
-            var inputHasHorns=document.getElementById("hasHorns").value;
+                var inputName=document.getElementById("name").value;
+                var inputNumberOfLegs=document.getElementById("numberOfLegs").value;
+                var inputExpression=document.getElementById("expression").value;
+                var inputLengthOfTail=document.getElementById("lengthOfTail").value;
+                var inputHasHorns=document.getElementById("hasHorns").value;
 
-            if ((document.getElementById("name").value !="") && (document.getElementById("numberOfLegs").value!="") && 
-            (document.getElementById("expression").value!="") &&(document.getElementById("lengthOfTail").value!="") && 
-            (document.getElementById("hasHorns").value!=""))
-            {
-                data.push({
-                "name":inputName,
-                "numberOfLegs":inputNumberOfLegs,
-                "expression":inputExpression,
-                "lengthOfTail":inputLengthOfTail,
-                "hasHorns":inputHasHorns})
-            
-                document.getElementById("name").value="";
-                document.getElementById("numberOfLegs").value="";
-                document.getElementById("expression").value="";
-                document.getElementById("lengthOfTail").value="";
-                document.getElementById("hasHorns").value="";
-            }
-            else
-            {
-                alert("Please fill out all input fields");
-            }            
-            
-                newdata=JSON.stringify(data);
-                parse=JSON.parse(newdata);          
+                if ((document.getElementById("name").value !="") && (document.getElementById("numberOfLegs").value!="") && 
+                (document.getElementById("expression").value!="") &&(document.getElementById("lengthOfTail").value!="") && 
+                (document.getElementById("hasHorns").value!=""))
+                {
+                    data.push({
+                    "name":inputName,
+                    "numberOfLegs":inputNumberOfLegs,
+                    "expression":inputExpression,
+                    "lengthOfTail":inputLengthOfTail,
+                    "hasHorns":inputHasHorns})
+                
+                    document.getElementById("name").value="";
+                    document.getElementById("numberOfLegs").value="";
+                    document.getElementById("expression").value="";
+                    document.getElementById("lengthOfTail").value="";
+                    document.getElementById("hasHorns").value="";
+                }
+                else
+                {
+                    alert("Please fill out all input fields");
+                }            
+                
+                    newdata=JSON.stringify(data);
+                    parse=JSON.parse(newdata);          
             }
 
 
@@ -188,15 +190,11 @@
 
                     x++;
                     }
-                }
-               
-            
-            else
+                }            
+                else
                 {
                     alert("Please enter and submit values first")
-                }
-
-                
+                }  
             } 
         </script>
 
