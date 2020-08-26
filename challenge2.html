@@ -4,7 +4,73 @@
         <title></title>
     </head>
     <body>
-        <table>
+        <style>
+            table
+            { 
+                margin: 0 auto;
+                font-size: 20px;
+                box-shadow: 5px 5px 10px darkslategray;                    
+            }
+            td
+            {
+                padding: 5px;
+                border-spacing: 5px;
+                margin: 0 auto;  
+            }
+            th
+            {
+                width: 130px;
+                font-size:17px;
+            }
+            input
+            {
+                border:2px solid darkgrey;
+                width:150px;
+                height:18px
+            }
+            input:focus 
+            {
+                border: 3px solid #555;
+                outline:none;
+            }
+            .button
+            {
+                text-align: center;
+            }
+            .table1
+            {
+                border:5px dashed slategray;
+                background-color: ghostwhite;
+            }
+            #submitBtn
+            {
+                height:30px;
+                width: 150px;
+                border: none; 
+                background-color:slategray;
+                color:ghostwhite;
+            }
+            #viewBtn
+            {
+                height:30px;
+                width:150px;
+                border:none;
+                background-color:slategray;
+                color:ghostwhite;
+            }
+            #datadisplay
+            {
+                text-align: center;
+                background-image: linear-gradient(to bottom right, lightblue, lavender);
+                border-radius: 10px;
+                color:midnightblue;
+                border: 2px solid lightslategray;
+                
+            }
+            
+        </style>
+        <br><br><br>
+        <table class="table1">
             <tr>
                 <td><label for="name">Name:</label></td>
                 <td><input type="text" id="name" autocomplete="off"></td>
@@ -29,21 +95,23 @@
                 <td><label for="hasHorns">Has Horns:</label></td>
                 <td><input type="text" id="hasHorns" autocomplete="off"></td>
             </tr>
-
+            <tr></tr>
+            <tr></tr>
             <tr>
-                <td><button type="button" id="submitBtn" onclick="submitFunction()">Submit</button></td>
-                <td><button type="button" id="viewBtn" onclick="viewFunction()">View</button></td>
+                <td class="button"><button type="button" id="submitBtn" onclick="submitFunction()">Submit</button></td>
+            
+                <td class="button"><button type="button" id="viewBtn" onclick="viewFunction()">View</button></td>
             </tr>
             
         </table>
-        <br>
+        <br><br><br>
         <table id="datadisplay">
             <tr>
-                <td>Name:</td>
-                <td>Number Of Legs:</td>
-                <td>Expression:</td>
-                <td>Length Of Tail:</td>
-                <td>Has Horns:</td>
+                <th>Name:</th>
+                <th>Number Of Legs:</th>
+                <th>Expression:</th>
+                <th>Length Of Tail:</th>
+                <th>Has Horns:</th>
             </tr>
         </table>
         
@@ -58,79 +126,79 @@
                 "hasHorns":""
             }
             ];
-            var newdata;
-            var parse;
-            var x=0;
+            var newdata="";
+            var parse="";
+            var x=1;
            
             
-            function submitFunction(){
+            function submitFunction()
+            {
             var inputName=document.getElementById("name").value;
             var inputNumberOfLegs=document.getElementById("numberOfLegs").value;
             var inputExpression=document.getElementById("expression").value;
             var inputLengthOfTail=document.getElementById("lengthOfTail").value;
             var inputHasHorns=document.getElementById("hasHorns").value;
+
+            if ((document.getElementById("name").value !="") && (document.getElementById("numberOfLegs").value!="") && 
+            (document.getElementById("expression").value!="") &&(document.getElementById("lengthOfTail").value!="") && 
+            (document.getElementById("hasHorns").value!=""))
+            {
+                data.push({
+                "name":inputName,
+                "numberOfLegs":inputNumberOfLegs,
+                "expression":inputExpression,
+                "lengthOfTail":inputLengthOfTail,
+                "hasHorns":inputHasHorns})
             
-            data.push({
-            "name":inputName,
-            "numberOfLegs":inputNumberOfLegs,
-            "expression":inputExpression,
-            "lengthOfTail":inputLengthOfTail,
-            "hasHorns":inputHasHorns}
-            )
-            newdata=JSON.stringify(data);
-            parse=JSON.parse(newdata);
+                document.getElementById("name").value="";
+                document.getElementById("numberOfLegs").value="";
+                document.getElementById("expression").value="";
+                document.getElementById("lengthOfTail").value="";
+                document.getElementById("hasHorns").value="";
+            }
+            else
+            {
+                alert("Please fill out all input fields");
+            }            
             
+                newdata=JSON.stringify(data);
+                parse=JSON.parse(newdata);          
             }
 
-            function viewFunction(){
-            var x=1;
-            var deletee;
+
+            function viewFunction()
+            {  
+                if (parse.length!=0)
+                {
+                    while(x<parse.length)
+                    {
+                    var table=document.getElementById("datadisplay");
+                    var row=table.insertRow(x);
+                    var cell1=row.insertCell(0);
+                    var cell2=row.insertCell(1);
+                    var cell3=row.insertCell(2);
+                    var cell4=row.insertCell(3);
+                    var cell5=row.insertCell(4);
+                    
+                    cell1.innerHTML=parse[x].name;
+                    cell2.innerHTML=parse[x].numberOfLegs;
+                    cell3.innerHTML=parse[x].expression;
+                    cell4.innerHTML=parse[x].lengthOfTail;
+                    cell5.innerHTML=parse[x].hasHorns;
+
+                    x++;
+                    }
+                }
+               
             
-            while(x<parse.length){
+            else
+                {
+                    alert("Please enter and submit values first")
+                }
+
                 
-            var table=document.getElementById("datadisplay");
-            
-            var row=table.insertRow(x);
-            var cell1=row.insertCell(0);
-            var cell2=row.insertCell(1);
-            var cell3=row.insertCell(2);
-            var cell4=row.insertCell(3);
-            var cell5=row.insertCell(4);
-             
-            cell1.innerHTML=parse[x].name;
-            cell2.innerHTML=parse[x].numberOfLegs;
-            cell3.innerHTML=parse[x].expression;
-            cell4.innerHTML=parse[x].lengthOfTail;
-            cell5.innerHTML=parse[x].hasHorns;
-            x++;
-        
-            deletee=table.deleteRow(x);
-            
-                
-            }
-            
-            }
-            
-
-            
-            //document.getElementById("displayResult").innerHTML=data[0].name + " " +data[0].numberOfLegs+" "+
-            //data[0].expression+" "+data[0].lengthOfTail+" "+data[0].hasHorns+" ";
-
-            
+            } 
         </script>
-        
-        
-   
-
-        
-        
-        
-        
-
-
-
-
-
 
     </body>
 </html>
