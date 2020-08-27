@@ -26,7 +26,14 @@
             {
                 border:2px solid darkgrey;
                 width:150px;
-                height:18px
+                height:18px;
+            }
+            select
+            {
+                border:2px solid darkgrey;
+                width:157px;
+                height:18px;
+                font-size:13px;
             }
             input:focus 
             {
@@ -64,8 +71,7 @@
                 background-image: linear-gradient(to bottom right, lightblue, lavender);
                 border-radius: 10px;
                 color:midnightblue;
-                border: 2px solid lightslategray;
-                
+                border: 2px solid lightslategray;  
             }
             
         </style>
@@ -94,7 +100,11 @@
 
             <tr>
                 <td><label for="hasHorns">Has Horns:</label></td>
-                <td><input type="text" id="hasHorns" autocomplete="off"></td>
+                <td><select id="hasHorns">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    </select>
+                </td>
             </tr>
             <tr></tr><tr></tr>
             <tr>
