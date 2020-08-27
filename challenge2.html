@@ -78,6 +78,7 @@
         
         <br><br><br>
         <table class="table1">
+            <form >
             <tr>
                 <td><label for="name">Name:</label></td>
                 <td><input type="text" id="name" autocomplete="off"></td>
@@ -85,7 +86,7 @@
 
             <tr>
                 <td><label for="numberOfLegs">Number of Legs:</label></td>
-                <td><input type="number" id="numberOfLegs" autocomplete="off"></td>
+                <td><input type="number" min="0" max="9" id="numberOfLegs" autocomplete="off" ></td>
             </tr>
 
             <tr>
@@ -95,7 +96,7 @@
 
             <tr>
                 <td><label for="lengthOfTail">Length of Tail:</label></td>
-                <td><input type="number" id="lengthOfTail" autocomplete="off"></td>
+                <td><input type="number" min="0" max="9" id="lengthOfTail" autocomplete="off" ></td>
             </tr>
 
             <tr>
@@ -108,11 +109,11 @@
             </tr>
             <tr></tr><tr></tr>
             <tr>
-                <td class="button"><button type="button" id="submitBtn" onclick="submitFunction()">Submit</button></td>
+                <td class="button"><button type="button" id="submitBtn" onclick="submitFunction()">Add Animal</button></td>
             
                 <td class="button"><button type="button" id="viewBtn" onclick="viewFunction()">View</button></td>
             </tr>
-            
+            </form>
         </table>
 
         <br><br><br>
