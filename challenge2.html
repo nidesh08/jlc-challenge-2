@@ -117,6 +117,7 @@
         </table>
 
         <br><br><br>
+
         <table id="datadisplay">
             <tr>
                 <th>Name:</th>
@@ -124,6 +125,7 @@
                 <th>Expression:</th>
                 <th>Length Of Tail:</th>
                 <th>Has Horns:</th>
+                <th></th>
             </tr>
         </table>
         
@@ -135,14 +137,16 @@
                 "numberOfLegs":"",
                 "expression":"",
                 "lengthOfTail":"",
-                "hasHorns":""
+                "hasHorns":"",
             }
             ];
 
             var newdata="";
             var parse="";
             var x=1;
-           
+           var position=[];
+           var counter=0;
+           var slici;
             
             function submitFunction()
             {
@@ -151,8 +155,10 @@
                 var inputExpression=document.getElementById("expression").value;
                 var inputLengthOfTail=document.getElementById("lengthOfTail").value;
                 var inputHasHorns=document.getElementById("hasHorns").value;
-
+                //if (counter==0)
+               // {
                 if ((document.getElementById("name").value !="") && (document.getElementById("numberOfLegs").value!="") && 
+                
                 (document.getElementById("expression").value!="") &&(document.getElementById("lengthOfTail").value!="") && 
                 (document.getElementById("hasHorns").value!=""))
                 {
@@ -161,29 +167,40 @@
                     "numberOfLegs":inputNumberOfLegs,
                     "expression":inputExpression,
                     "lengthOfTail":inputLengthOfTail,
-                    "hasHorns":inputHasHorns})
-                
-                    document.getElementById("name").value="";
-                    document.getElementById("numberOfLegs").value="";
-                    document.getElementById("expression").value="";
-                    document.getElementById("lengthOfTail").value="";
-                    document.getElementById("hasHorns").value="";
+                    "hasHorns":inputHasHorns});
+
+                	counter++;
+                   clearInput();
                 }
                 else
                 {
                     alert("Please fill out all input fields");
                 }            
+                //}
+                /*else {
+                	parse[position].name=inputName;
+                	parse[position].numberOfLegs=inputNumberOfLegs;
+                	parse[position].expression=inputExpression;
+                	parse[position].lengthOfTail=inputLengthOfTail;
+                	parse[position].hasHorns=inputHasHorns;
+                }*/
+
+
+
+
                 
-                    newdata=JSON.stringify(data);
-                    parse=JSON.parse(newdata);          
+                	
+                    //newdata=JSON.stringify(data);
+                    //parse=JSON.parse(newdata);
+                             
             }
 
 
             function viewFunction()
             {  
-                if (parse.length!=0)
+                if (data.length!=0)
                 {
-                    while(x<parse.length)
+                    while(x<data.length)
                     {
                     var table=document.getElementById("datadisplay");
                     var row=table.insertRow(x);
@@ -192,21 +209,106 @@
                     var cell3=row.insertCell(2);
                     var cell4=row.insertCell(3);
                     var cell5=row.insertCell(4);
+                    var cell6=row.insertCell(5);
+
                     
-                    cell1.innerHTML=parse[x].name;
-                    cell2.innerHTML=parse[x].numberOfLegs;
-                    cell3.innerHTML=parse[x].expression;
-                    cell4.innerHTML=parse[x].lengthOfTail;
-                    cell5.innerHTML=parse[x].hasHorns;
+                    cell1.innerHTML=data[x].name;
+                    cell2.innerHTML=data[x].numberOfLegs;
+                    cell3.innerHTML=data[x].expression;
+                    cell4.innerHTML=data[x].lengthOfTail;
+                    cell5.innerHTML=data[x].hasHorns;
+                    //cell6.innerHTML='<button type="button" id="editBtn" onclick="editFunction(this)" data-position=x>Edit</button>'+
+                          			//'<button type="button" id="deleteBtn" onclick="deleteFunction()">Delete</button>';
+                    
+
+                      const button = document.createElement("button");
+  button.innerText = x;
+  button.id = 'button-' + x;
+  button.setAttribute('index', x);
+  button.addEventListener("click", buttonClicked)
+  
+                    cell6.innerHTML=button;
+                    
+
+/*
+ var editButtonHTML = "<input type=button value=Edit class=edit id=edit-button" + (i + 1) + ">";
+  cell3.innerHTML = editButtonHTML;
+  cell3.addEventListener("click", function(event) {
+  	var currentId = event.target.id;
+    // Change the id (last character, some tweak)
+    alert(event.target.id); // Before
+    event.target.id = event.target.id[event.target.id.length - 1];
+    alert(event.target.id); // After
+  }); 
+  */
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     x++;
                     }
+                    
+
                 }            
                 else
                 {
                     alert("Please enter and submit values first")
-                }  
+                } 
+                
+
             } 
+
+            function clearInput()
+            {
+            	 	document.getElementById("name").value="";
+                    document.getElementById("numberOfLegs").value="";
+                    document.getElementById("expression").value="";
+                    document.getElementById("lengthOfTail").value="";
+                    document.getElementById("hasHorns").value="";
+            }
+
+            //function editFunction(e)
+            //{
+            	/*var y=x;
+                    var z=y+1;
+            	document.getElementById("name").value=slici[0].name;
+                document.getElementById("numberOfLegs").value=slici[0].numberOfLegs;
+                document.getElementById("expression").value=slici[0].expression;
+                document.getElementById("lengthOfTail").value=slici[0].lengthOfTail;
+                document.getElementById("hasHorns").value=slici[0].hasHorns;*/
+
+              
+ /* var animalType = animal.getAttribute("data-position");
+  var inner=animalType.innerHTML;
+  alert(inner);*/
+
+  //console.log(e.target.id);
+  //console.log(e.target.getAttribute('index'));
+  //event.target.id = event.target.id[event.target.id.length - 1];
+
+
+                function buttonClicked(e) {
+  console.log(e.target.id)
+  console.log(e.target.getAttribute('index'));
+  
+}
+                
+               
+            //}
+
+           
         </script>
 
     </body>
