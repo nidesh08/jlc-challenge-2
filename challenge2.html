@@ -226,6 +226,7 @@
                         table.rows[position].cells[4].innerHTML=data[position].hasHorns;
                         table.rows[position].cells[5].innerHTML='<button type="button" id="editBtn" onclick="editFunction(this)">Edit</button>'+
                                                                 '<button type="button" id="deleteBtn" onclick="deleteFunction(this)">Delete</button>';
+                        document.getElementById("submitBtn").innerHTML="Add Animal";
                         editClickCounter=0;
                     }   
                 }            
@@ -252,6 +253,7 @@
                 document.getElementById("expression").value=data[indexR].expression;
                 document.getElementById("lengthOfTail").value=data[indexR].lengthOfTail;
                 document.getElementById("hasHorns").value=data[indexR].hasHorns;
+                document.getElementById("submitBtn").innerHTML="Update";
                 editClickCounter=1;
                 position=indexR;
             }
