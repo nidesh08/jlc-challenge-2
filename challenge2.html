@@ -4,78 +4,7 @@
         <title></title>
     </head>
     <body>
-        <style>
-            table
-            { 
-                margin: 0 auto;
-                font-size: 20px;
-                box-shadow: 5px 5px 10px darkslategray;                    
-            }
-            td
-            {
-                padding: 5px;
-                border-spacing: 5px;
-                margin: 0 auto;  
-            }
-            th
-            {
-                width: 130px;
-                font-size:17px;
-            }
-            input
-            {
-                border:2px solid darkgrey;
-                width:150px;
-                height:18px;
-            }
-            select
-            {
-                border:2px solid darkgrey;
-                width:157px;
-                height:18px;
-                font-size:13px;
-            }
-            input:focus 
-            {
-                border: 3px solid #555;
-                outline:none;
-            }
-            .button
-            {
-                text-align: center;
-            }
-            .table1
-            {
-                border:5px dashed slategray;
-                background-color: ghostwhite;
-            }
-            #submitBtn
-            {
-                height:30px;
-                width: 150px;
-                border: none; 
-                background-color:slategray;
-                color:ghostwhite;
-            }
-            #viewBtn
-            {
-                height:30px;
-                width:150px;
-                border:none;
-                background-color:slategray;
-                color:ghostwhite;
-            }
-            #datadisplay
-            {
-                text-align: center;
-                background-image: linear-gradient(to bottom right, lightblue, lavender);
-                border-radius: 10px;
-                color:midnightblue;
-                border: 2px solid lightslategray;  
-            }
-            
-        </style>
-        
+         
         <br><br><br>
         <table class="table1">
             <form >
@@ -226,6 +155,7 @@
                         table.rows[position].cells[4].innerHTML=data[position].hasHorns;
                         table.rows[position].cells[5].innerHTML='<button type="button" id="editBtn" onclick="editFunction(this)">Edit</button>'+
                                                                 '<button type="button" id="deleteBtn" onclick="deleteFunction(this)">Delete</button>';
+                        document.getElementById("submitBtn").innerHTML="Add Animal";
                         editClickCounter=0;
                     }   
                 }            
@@ -252,6 +182,7 @@
                 document.getElementById("expression").value=data[indexR].expression;
                 document.getElementById("lengthOfTail").value=data[indexR].lengthOfTail;
                 document.getElementById("hasHorns").value=data[indexR].hasHorns;
+                document.getElementById("submitBtn").innerHTML="Update";
                 editClickCounter=1;
                 position=indexR;
             }
