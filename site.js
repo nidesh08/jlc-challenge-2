@@ -80,8 +80,8 @@
                     cell3.innerHTML=data[x].expression;
                     cell4.innerHTML=data[x].lengthOfTail;
                     cell5.innerHTML=data[x].hasHorns;
-                    cell6.innerHTML='<button type="button" id="editBtn" onclick="editFunction(this)">Edit</button>'+
-                                    '<button type="button" id="deleteBtn" onclick="deleteFunction(this)">Delete</button>';
+                    cell6.innerHTML='<button type="button" id="editBtn" onclick="editFunction(this)"><i class="fa fa-pencil-square-o"></i> Edit</button>'+' '+
+                                    '<button type="button" id="deleteBtn" onclick="deleteFunction(this)"><i class="fa fa-times"></i> Delete</button>';
                     x++;
                 }
             }
@@ -93,8 +93,8 @@
                 table.rows[position].cells[2].innerHTML=data[position].expression;
                 table.rows[position].cells[3].innerHTML=data[position].lengthOfTail;
                 table.rows[position].cells[4].innerHTML=data[position].hasHorns;
-                table.rows[position].cells[5].innerHTML='<button type="button" id="editBtn" onclick="editFunction(this)">Edit</button>'+
-                                                        '<button type="button" id="deleteBtn" onclick="deleteFunction(this)">Delete</button>';
+                table.rows[position].cells[5].innerHTML='<button type="button" id="editBtn" onclick="editFunction(this)"><i class="fa fa-pencil-square-o"></i> Edit</button>'+' '+
+                                                        '<button type="button" id="deleteBtn" onclick="deleteFunction(this)"><i class="fa fa-times"></i> Delete</button>';
                 document.getElementById("submitBtn").innerHTML="Add Animal";
                 editClickCounter=0;
             }   
@@ -134,5 +134,6 @@
         data.splice(indexR,1);
         table.deleteRow(indexR);
         x--;
+        document.getElementById("submitBtn").innerHTML="Add Animal";
         clearInput();
     }

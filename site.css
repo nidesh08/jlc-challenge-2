@@ -15,28 +15,28 @@ td
 th
 {
     width: 130px;
-    font-size:17px;
+    font-size: 17px;
 }
 
 input
 {
-    border:2px solid darkgrey;
-    width:150px;
-    height:18px;
+    border: 2px solid darkgrey;
+    width: 150px;
+    height: 18px;
 }
             
 select
 {
-    border:2px solid darkgrey;
-    width:157px;
-    height:18px;
-    font-size:13px;
+    border: 2px solid darkgrey;
+    width: 157px;
+    height: 18px;
+    font-size: 13px;
 }
 
 input:focus 
 {
     border: 3px solid #555;
-    outline:none;
+    outline: none;
 }
             
 .button
@@ -46,26 +46,31 @@ input:focus
 
 .table1
 {
-    border:5px dashed slategray;
+    border: 5px dashed slategray;
     background-color: ghostwhite;
+}
+
+.last
+{
+    width: 140px;
 }
         
 #submitBtn
 {
-    height:30px;
+    height: 30px;
     width: 150px;
     border: none; 
-    background-color:slategray;
-    color:ghostwhite;         
+    background-color: slategray;
+    color: ghostwhite;         
 }
             
 #viewBtn
 {
-    height:30px;
-    width:150px;
-    border:none;
-    background-color:slategray;
-    color:ghostwhite;            
+    height: 30px;
+    width: 150px;
+    border: none;
+    background-color: slategray;
+    color: ghostwhite;            
 }
             
 #datadisplay
@@ -73,6 +78,6 @@ input:focus
     text-align: center;
     background-image: linear-gradient(to bottom right, lightblue, lavender);
     border-radius: 10px;
-    color:midnightblue;
+    color: midnightblue;
     border: 2px solid lightslategray;  
 }
